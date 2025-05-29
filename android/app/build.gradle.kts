@@ -8,11 +8,12 @@ plugins {
 android {
     namespace = "com.example.calculator_lock"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
 
     kotlinOptions {
@@ -39,6 +40,12 @@ android {
     }
 }
 
+dependencies {
+    // các dependencies khác...
+
+    // ✅ BẮT BUỘC phải có dòng này khi bật desugaring
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+}
 flutter {
     source = "../.."
 }
